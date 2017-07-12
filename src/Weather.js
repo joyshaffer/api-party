@@ -15,7 +15,7 @@ class Weather extends Component {
     handleSubmit = (ev) => {
         ev.preventDefault()
         this.props.history.push(`/weather/${this.state.zip}`)
-        this.setState({zip: ''})
+        this.setState({ zip: '' })
     }
 
     render () {

@@ -6,16 +6,23 @@ class WeatherInfo extends Component {
         super(props)
 
         this.state = {
-            user: '',
+            userName: '',
         }
 
         this.fetchUserData(props)
     }
 
     fetchUserData = (props) => {
-        fetch(`https://openweathermap.org/api/${props.match.params.zip}`)
+        fetch(`api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}${props.match.params.zip}`)
             .then(response => response.json())
-            .then(user => this.setState({ user }, () => console.log(this.state)))
+            .then(data => {
+                const userInfo = {
+                    zip: data.zip,
+                    weather: data.weather,
+                    coord: data.coord,
+                }
+                this.setState({ userInfo })
+            })
     }
 
     componentWillReceiveProps(nextProps) {
@@ -28,8 +35,9 @@ class WeatherInfo extends Component {
     render () {
         return(
             <div className="weather-info">
-                <h2>ZIP: {this.state.user.zip}</h2>
-                <h3>Weather: {this.state.user.weather}</h3>
+                <h2>ZIP: {this.state.userName.zip}</h2>
+                <h3>Weather: {this.state.userName.weather}</h3>
+                <h3>Coordinates: {this.state.userName.coord}</h3>
             </div>
         )
     }
