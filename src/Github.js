@@ -12,11 +12,11 @@ class Github extends Component {
         this.setState({ username: ev.target.value })
     }
 
-handleSubmit = (ev) => {
-    ev.preventDefault()
-    this.props.history.push(`/github/${this.state.username}`)
-    this.setState({username: ''})
-}
+    handleSubmit = (ev) => {
+        ev.preventDefault()
+        this.props.history.push(`/github/${this.state.username}`)
+        this.setState({username: ''})
+    }
 
     render() {
         return (
