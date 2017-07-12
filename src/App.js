@@ -23,7 +23,7 @@ class App extends Component {
               <NavLink to='/nasa'>NASA API</NavLink>
             </li>
             <li>
-              <NavLink to='/weather'>Weather</NavLink>
+              <NavLink to='/weather'>Weather API</NavLink>
             </li>
             <li>
               <NavLink to='/homework'>Homework</NavLink>
@@ -38,7 +38,7 @@ class App extends Component {
           <Route render={() => <p>To get started, click one of the links above</p>} />
         </Switch>
       </div>
-    );
+    )
   }
 }
 
